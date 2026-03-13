@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="GvyTGbIx3Zov0CXr0f1voJ2LJnac-ppCl62NStzdY3E" />
+    <meta name="description" content="BlazezzzzJoki menyediakan jasa joki Mobile Legends (MLBB) murah, aman, dan cepat. Push rank Epic, Legend hingga Mythic dengan win rate tinggi dan proses cepat.">
+<meta name="keywords" content="joki mlbb, joki mobile legends, jasa joki mlbb murah, joki rank mlbb terpercaya, joki mythic mlbb, push rank mlbb, joki mlbb indonesia, blazezzzzjoki">
+<meta name="author" content="BlazezzzzJoki">
+    <title>BlazezzzzJoki - Layanan Joki MLBB Profesional</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://i.ibb.co.com/V0HYNSsB/blazezzzz.jpg" type="image/jpeg">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0c',
+                            card: '#131318',
+                            blue: '#0055ff',
+                            blueHover: '#0044cc',
+                            light: '#f5f5f5'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0a0c;
+            color: #f5f5f5;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0055ff;
+            border-radius: 4px;
+        }
+
+        /* Gradients */
+        .text-gradient {
+            background: linear-gradient(to right, #0055ff, #00aaff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-animated {
+            background: linear-gradient(270deg, #0055ff, #00aaff, #0022aa);
+            background-size: 600% 600%;
+            animation: gradientAnimation 5s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Carousel Animation */
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /* Input styling overrides */
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        .glass-card {
+            background: rgba(19, 19, 24, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 85, 255, 0.2);
+        }
+
+        /* Typing Cursor Animation */
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: #0055ff;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-card border-b-0 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-3xl font-bold tracking-tighter text-gradient flex items-center">
+                        <img src="https://i.ibb.co.com/V0HYNSsB/blazezzzz.jpg" alt="BlazezzzzJoki Logo" class="w-10 h-10 rounded-full mr-3 border-2 border-brand-blue object-cover">
+                        <span id="brand-typing"></span><span class="typing-cursor">&nbsp;</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#beranda" class="hover:text-brand-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Beranda</a>
+                        <a href="#layanan" class="hover:text-brand-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Layanan Kami</a>
+                        <a href="#joki" onclick="showJokiSection(event)" class="hover:text-brand-blue px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer">Joki MLBB</a>
+                        <a href="#profile" class="hover:text-brand-blue px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer">Profile</a>
+                        <a href="#konsultasi" class="hover:text-brand-blue px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer">Konsultasi</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-card border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#beranda" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 hover:text-brand-blue">Beranda</a>
+                <a href="#layanan" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 hover:text-brand-blue">Layanan Kami</a>
+                <a href="#joki" onclick="showJokiSection(event)" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 hover:text-brand-blue cursor-pointer">Joki MLBB</a>
+                <a href="#profile" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 hover:text-brand-blue cursor-pointer">Profile</a>
+                <a href="#konsultasi" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-800 hover:text-brand-blue cursor-pointer">Konsultasi</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Beranda -->
+    <header id="beranda" class="relative pt-20 h-[60vh] md:h-[80vh] overflow-hidden bg-black">
+        <div class="carousel-container h-full w-full" id="carousel">
+            <div class="min-w-full h-full relative">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="w-full h-full object-cover opacity-40" alt="Gaming Banner 1">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 uppercase tracking-wider">Tingkatkan <span class="text-gradient">Rankmu</span> Sekarang</h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl">Layanan joki game profesional, cepat, aman, dan terpercaya oleh BlazezzzzJoki.</p>
+                    <a href="#joki" onclick="showJokiSection(event)" class="bg-gradient-animated text-white px-8 py-3 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-[0_0_15px_rgba(0,85,255,0.5)] cursor-pointer">Pesan Joki MLBB</a>
+                </div>
+            </div>
+            <div class="min-w-full h-full relative">
+                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="w-full h-full object-cover opacity-40" alt="Gaming Banner 2">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 uppercase tracking-wider">Joki <span class="text-gradient">Aman & Terpercaya</span></h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl">Privasi akun terjamin, dikerjakan oleh pro player berpengalaman.</p>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-5 left-0 right-0 flex justify-center space-x-2">
+            <button class="w-3 h-3 rounded-full bg-brand-blue carousel-dot" onclick="goToSlide(0)"></button>
+            <button class="w-3 h-3 rounded-full bg-gray-500 carousel-dot" onclick="goToSlide(1)"></button>
+        </div>
+    </header>
+
+    <!-- Layanan Kami -->
+    <section id="layanan" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Layanan <span class="text-gradient">Kami</span></h2>
+                <div class="w-24 h-1 bg-brand-blue mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="flex justify-center">
+                <div class="glass-card rounded-2xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300 border-brand-blue max-w-md w-full">
+                    <div class="h-48 overflow-hidden relative">
+                        <div class="absolute top-2 right-2 bg-brand-blue text-white text-xs font-bold px-2 py-1 rounded z-10">HOT</div>
+                        <img src="https://i.ibb.co.com/C3JTk92K/download-7.jpg" alt="Mobile Legends" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold mb-2 text-brand-blue">Mobile Legends</h3>
+                        <p class="text-gray-400 text-sm mb-4">Push Rank Epic to Immortal, Classic Winrate, Joki MCL.</p>
+                        <button onclick="showJokiSection(event)" class="inline-block bg-brand-blue text-white px-6 py-2 rounded-full font-medium hover:bg-brand-blueHover transition-colors">Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile & Socials -->
+    <section id="profile" class="py-20 bg-[#0d0d11] relative border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Profile <span class="text-gradient">BlazezzzzJoki</span></h2>
+            <div class="flex justify-center mb-6">
+                <img src="https://i.ibb.co.com/V0HYNSsB/blazezzzz.jpg" alt="blazezzzz" class="w-40 h-40 rounded-full border-4 border-brand-blue object-cover shadow-[0_0_20px_rgba(0,85,255,0.5)]">
+            </div>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">Top Global Player & Professional Booster. Siap membantu akun Anda mencapai Rank tertinggi dengan cepat dan aman.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://www.tiktok.com/@blazezzzz.joki" target="_blank" class="text-3xl text-gray-300 hover:text-brand-blue transition-colors"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/blazezzzz.joki/" target="_blank" class="text-3xl text-gray-300 hover:text-brand-blue transition-colors"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Joki MLBB -->
+    <section id="joki" class="hidden py-20 bg-[#0a0a0c] relative border-t border-gray-800">
+        <div class="absolute top-0 left-0 w-64 h-64 bg-brand-blue opacity-5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-blue opacity-5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Joki <span class="text-gradient">Mobile Legends</span></h2>
+                <p class="text-gray-400">Daftar harga per bintang dan paket ranked.</p>
+            </div>
+
+            <!-- Paket Joki Ranked -->
+            <div class="mb-16">
+                <h3 class="text-xl md:text-2xl font-bold mb-6 text-center flex items-center justify-center">
+                    <i class="fas fa-box-open text-brand-blue mr-3"></i> Paket Joki Ranked (Biasa & Gendong)
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="glass-card p-6 rounded-xl text-center border-t-4 border-brand-blue">
+                        <div class="flex justify-center items-center mb-3 space-x-3">
+                            <img src="https://i.ibb.co.com/fGFDtLNG/4734fb775e7266359cc845892494599b-removebg-preview.png" alt="Epic" class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                            <i class="fas fa-arrow-right text-gray-500"></i>
+                            <img src="https://i.ibb.co.com/G4Mrf5ZQ/images-removebg-preview.png" alt="Legend" class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                        </div>
+                        <h4 class="font-bold text-lg text-white mb-4">Epic V - Legend V</h4>
+                        <div class="flex justify-between items-center bg-gray-800/50 rounded-lg p-3">
+                            <div class="text-center w-1/2 border-r border-gray-700">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Biasa</p>
+                                <p class="text-brand-blue font-bold text-lg">Rp 145.000</p>
+                            </div>
+                            <div class="text-center w-1/2">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Gendong</p>
+                                <p class="text-brand-blue font-bold text-lg">Rp 220.000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center border-t-4 border-brand-blue">
+                        <div class="flex justify-center items-center mb-3 space-x-3">
+                            <img src="https://i.ibb.co.com/fGFDtLNG/4734fb775e7266359cc845892494599b-removebg-preview.png" alt="Epic" class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                            <i class="fas fa-arrow-right text-gray-500"></i>
+                            <img src="https://i.ibb.co.com/zWvvW31z/8531ec8e85dda4e3f99e2bed1ccec60c-removebg-preview.png" alt="Mythic" class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                        </div>
+                        <h4 class="font-bold text-lg text-white mb-4">Epic V - Mythic</h4>
+                        <div class="flex justify-between items-center bg-gray-800/50 rounded-lg p-3">
+                            <div class="text-center w-1/2 border-r border-gray-700">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Biasa</p>
+                                <p class="text-brand-blue font-bold text-lg">Rp 305.000</p>
+                            </div>
+                            <div class="text-center w-1/2">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Gendong</p>
+                                <p class="text-brand-blue font-bold text-lg">Rp 460.000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center border-t-4 border-brand-blue">
+                        <div class="flex justify-center items-center mb-3 space-x-3">
+                            <img src="https://i.ibb.co.com/fGFDtLNG/4734fb775e7266359cc845892494599b-removebg-preview.png" alt="Epic" class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                            <i class="fas fa-arrow-right text-gray-500"></i>
+                            <img src="https://i.ibb.co.com/zWvvW31z/8531ec8e85dda4e3f99e2bed1ccec60c-removebg-preview.png" alt="Mythic" class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                        </div>
+                        <h4 class="font-bold text-lg text-white mb-4">Epic II - Mythic</h4>
+                        <div class="flex justify-between items-center bg-gray-800/50 rounded-lg p-3">
+                            <div class="text-center w-1/2 border-r border-gray-700">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Biasa</p>
+                                <p class="text-brand-blue font-bold text-lg">Rp 215.000</p>
+                            </div>
+                            <div class="text-center w-1/2">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Gendong</p>
+                                <p class="text-brand-blue font-bold text-lg">Rp 320.000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center border-t-4 border-brand-blue">
+                        <div class="flex justify-center items-center mb-3 space-x-3">
+                            <img src="https://i.ibb.co.com/G4Mrf5ZQ/images-removebg-preview.png" alt="Legend" class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                            <i class="fas fa-arrow-right text-gray-500"></i>
+                            <img src="https://i.ibb.co.com/zWvvW31z/8531ec8e85dda4e3f99e2bed1ccec60c-removebg-preview.png" alt="Mythic" class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                        </div>
+                        <h4 class="font-bold text-lg text-white mb-4">Legend V - Mythic</h4>
+                        <div class="flex justify-between items-center bg-gray-800/50 rounded-lg p-3">
+                            <div class="text-center w-1/2 border-r border-gray-700">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Biasa</p>
+                                <p class="text-brand-blue font-bold text-lg">Rp 165.000</p>
+                            </div>
+                            <div class="text-center w-1/2">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Gendong</p>
+                                <p class="text-brand-blue font-bold text-lg">Rp 240.000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center border-t-4 border-brand-blue">
+                        <div class="flex justify-center items-center mb-3 space-x-3">
+                            <img src="https://i.ibb.co.com/G4Mrf5ZQ/images-removebg-preview.png" alt="Legend" class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                            <i class="fas fa-arrow-right text-gray-500"></i>
+                            <img src="https://i.ibb.co.com/zWvvW31z/8531ec8e85dda4e3f99e2bed1ccec60c-removebg-preview.png" alt="Mythic" class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                        </div>
+                        <h4 class="font-bold text-lg text-white mb-4">Legend III - Mythic</h4>
+                        <div class="flex justify-between items-center bg-gray-800/50 rounded-lg p-3">
+                            <div class="text-center w-1/2 border-r border-gray-700">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Biasa</p>
+                                <p class="text-brand-blue font-bold text-lg">Rp 100.000</p>
+                            </div>
+                            <div class="text-center w-1/2">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Gendong</p>
+                                <p class="text-brand-blue font-bold text-lg">Rp 145.000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl text-center border-t-4 border-brand-blue">
+                        <div class="flex justify-center items-center mb-3 space-x-3">
+                            <img src="https://i.ibb.co.com/zWvvW31z/8531ec8e85dda4e3f99e2bed1ccec60c-removebg-preview.png" alt="Mythic" class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                            <i class="fas fa-arrow-right text-gray-500"></i>
+                            <img src="https://i.ibb.co.com/zWvvW31z/8531ec8e85dda4e3f99e2bed1ccec60c-removebg-preview.png" alt="Mythic" class="w-12 h-12 object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                        </div>
+                        <h4 class="font-bold text-lg text-white mb-4">Full Grading</h4>
+                        <div class="flex justify-between items-center bg-gray-800/50 rounded-lg p-3">
+                            <div class="text-center w-1/2 border-r border-gray-700">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Biasa</p>
+                                <p class="text-brand-blue font-bold text-lg">Rp 160.000</p>
+                            </div>
+                            <div class="text-center w-1/2">
+                                <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Gendong</p>
+                                <p class="text-brand-blue font-bold text-lg">Rp 240.000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricelist Display -->
+            <div class="mb-12">
+                <h3 class="text-xl md:text-2xl font-bold mb-6 text-center flex items-center justify-center">
+                    <i class="fas fa-tags text-brand-blue mr-3"></i> Pricelist Per Bintang (Biasa & Gendong)
+                </h3>
+                <div id="priceListContainer" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Calculator -->
+            <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl">
+                <h3 class="text-xl md:text-2xl font-bold mb-6 text-center border-b border-gray-800 pb-4">Kalkulator <span class="text-brand-blue">Estimasi</span></h3>
+                
+                <div class="mb-6 flex justify-center">
+                    <div class="inline-flex bg-gray-800 rounded-lg p-1">
+                        <button id="btnBiasa" class="px-6 py-2 rounded-md font-medium text-white bg-brand-blue transition-colors" onclick="setTipeJoki('biasa')">Joki Biasa</button>
+                        <button id="btnGendong" class="px-6 py-2 rounded-md font-medium text-gray-400 hover:text-white transition-colors" onclick="setTipeJoki('gendong')">Joki Gendong</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold border-b border-gray-700 pb-2"><i class="fas fa-arrow-down text-gray-400 mr-2"></i>Rank Saat Ini</h3>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Pilih Rank & Divisi Awal</label>
+                            <select id="rankAwal" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors appearance-none">
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Bintang Sekarang</label>
+                            <input type="number" id="bintangAwal" min="0" placeholder="Contoh: 3" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold border-b border-gray-700 pb-2"><i class="fas fa-arrow-up text-brand-blue mr-2"></i>Rank Tujuan</h3>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Pilih Rank & Divisi Tujuan</label>
+                            <select id="rankTujuan" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors appearance-none">
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Bintang Tujuan</label>
+                            <input type="number" id="bintangTujuan" min="1" placeholder="Contoh: 5" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-colors">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <button id="btnHitung" class="w-full md:w-auto bg-gradient-animated text-white px-10 py-3 rounded-xl font-bold text-lg hover:shadow-[0_0_20px_rgba(0,85,255,0.4)] transition-all flex items-center justify-center mx-auto">
+                        <i class="fas fa-calculator mr-2"></i> Hitung Harga
+                    </button>
+                    <p id="errorMsg" class="text-red-500 mt-3 text-sm hidden"></p>
+                </div>
+            </div>
+
+            <!-- Result -->
+            <div id="resultArea" class="hidden mt-8">
+                <div class="glass-card rounded-2xl p-6 md:p-8 text-center border-brand-blue border-2 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brand-blue text-xs font-bold px-3 py-1 rounded-bl-lg">ESTIMASI</div>
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12 mb-8">
+                        <div class="flex flex-col items-center">
+                            <img id="imgResAwal" src="" alt="Rank Awal" class="w-16 h-16 object-contain mb-2 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                            <span id="txtResAwal" class="font-bold mt-2 text-lg">Epic</span>
+                            <span id="txtStarAwal" class="text-gray-400 text-sm"><i class="fas fa-star text-yellow-500 text-xs"></i> 0 Bintang</span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-angle-double-right text-4xl text-brand-blue animate-pulse hidden md:block"></i>
+                            <i class="fas fa-angle-double-down text-4xl text-brand-blue animate-pulse md:hidden"></i>
+                            <div class="mt-2 bg-gray-800 px-3 py-1 rounded-full text-xs font-medium border border-gray-700 shadow-inner">
+                                +<span id="txtTotalStars">0</span> Bintang
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <img id="imgResTujuan" src="" alt="Rank Tujuan" class="w-16 h-16 object-contain mb-2 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
+                            <span id="txtResTujuan" class="font-bold mt-2 text-lg text-brand-blue">Legend</span>
+                            <span id="txtStarTujuan" class="text-gray-400 text-sm"><i class="fas fa-star text-yellow-500 text-xs"></i> 0 Bintang</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#0a0a0c] rounded-xl p-4 mb-8 inline-block min-w-[250px] border border-gray-800">
+                        <p class="text-gray-400 text-sm mb-1">Total Harga Joki <span id="txtTipeJokiRes" class="text-xs uppercase tracking-wider text-brand-blue bg-gray-800 px-2 py-0.5 rounded ml-1">Biasa</span></p>
+                        <h3 id="txtTotalPrice" class="text-3xl font-bold text-gradient">Rp 0</h3>
+                        <p id="pcAdminNote" class="text-brand-blue text-sm font-bold hidden mt-2">Harga PC Admin</p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+                        <button id="btnReset" class="px-6 py-3 rounded-xl font-semibold border border-gray-600 text-gray-300 hover:bg-gray-800 transition-colors">
+                            <i class="fas fa-undo mr-2"></i> Reset
+                        </button>
+                        <button id="btnLanjut" class="bg-brand-blue text-white px-8 py-3 rounded-xl font-bold hover:bg-brand-blueHover shadow-[0_4px_14px_0_rgba(0,85,255,0.39)] transition-all">
+                            Lanjut Pesanan <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkout Form -->
+            <div id="checkoutForm" class="hidden mt-8 glass-card rounded-2xl p-6 md:p-8 border-t-4 border-t-brand-blue">
+                <h3 class="text-2xl font-bold mb-6 text-center border-b border-gray-800 pb-4">Formulir <span class="text-gradient">Pemesanan</span></h3>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-lg font-semibold text-brand-blue mb-4 flex items-center"><i class="fas fa-user-shield mr-2"></i> Informasi Akun</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">Login Dengan</label>
+                                <select id="loginVia" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-blue">
+                                    <option value="Moonton">Moonton</option>
+                                    <option value="Tiktok">Tiktok</option>
+                                    <option value="Google">Google</option>
+                                    <option value="Facebook">Facebook</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">Email / No HP Akun</label>
+                                <input type="text" id="emailAkun" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-blue" placeholder="Masukkan Email/No HP">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm text-gray-400 mb-1">Password Akun</label>
+                                <input type="text" id="pwAkun" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-blue" placeholder="Masukkan Password">
+                            </div>
+                            <div class="md:col-span-2 border-t border-gray-800 pt-4 mt-2">
+                                <label class="block text-sm text-gray-400 mb-1">Request Permainan</label>
+                                <input type="text" id="reqPermainan" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-blue" placeholder="Contoh: Main santai / Cepat">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">Hero Prioritas</label>
+                                <input type="text" id="heroPrioritas" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-blue" placeholder="Contoh: Ling, Fanny">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">Request Role 2</label>
+                                <input type="text" id="reqRole2" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-blue" placeholder="Contoh: Goldlane">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">Request Role 3</label>
+                                <input type="text" id="reqRole3" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-blue" placeholder="Contoh: Roam">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">Jumlah Request Hero</label>
+                                <select id="jmlReqHero" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-blue">
+                                    <option value="Tidak Ada (Gratis)">Tidak Ada (Gratis)</option>
+                                    <option value="1 Hero">1 Hero</option>
+                                    <option value="2 Hero">2 Hero</option>
+                                    <option value="3 Hero">3 Hero</option>
+                                    <option value="Lebih dari 3 Hero">Lebih dari 3 Hero</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-semibold text-brand-blue mb-4 flex items-center"><i class="fas fa-address-card mr-2"></i> Data Customer</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">Nama Panggilan</label>
+                                <input type="text" id="namaCust" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-blue" placeholder="Nama Anda">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-gray-400 mb-1">Nomor WhatsApp</label>
+                                <input type="number" id="waCust" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-blue" placeholder="08xxx">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm text-gray-400 mb-1">Catatan Tambahan</label>
+                                <textarea id="catatanCust" rows="2" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-blue resize-none" placeholder="Contoh: Tolong main malam saja jam 8 keatas."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#0a0a0c] p-6 rounded-xl border border-gray-800">
+                        <h4 class="text-lg font-semibold text-brand-blue mb-4 flex items-center"><i class="fas fa-wallet mr-2"></i> Pembayaran QRIS</h4>
+                        <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                            <div class="bg-white p-2 rounded-lg inline-block text-center">
+                                <img src="https://i.ibb.co.com/27PSWcZH/IMG-20260313-WA0004.webp" alt="QRIS BlazezzzzJoki" class="w-40 h-40 object-cover mx-auto">
+                                <p class="text-black text-xs font-bold mt-1">A.N BlazezzzzJoki</p>
+                                <a href="https://i.ibb.co.com/27PSWcZH/IMG-20260313-WA0004.webp" target="_blank" download="QRIS_BlazezzzzJoki.jpg" class="mt-2 block w-full bg-brand-blue text-white text-xs py-1 rounded hover:bg-brand-blueHover">Download QRIS</a>
+                            </div>
+                            
+                            <div class="flex-1 w-full space-y-4">
+                                <div class="bg-gray-800/50 p-4 rounded-lg border border-gray-700">
+                                    <div class="flex justify-between items-center mt-2">
+                                        <span class="text-lg font-bold text-white">Total Transfer (<span id="summTipeJoki" class="capitalize">Biasa</span>)</span>
+                                        <span id="summTotal" class="text-xl font-bold text-brand-blue">Rp 0</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-gray-400 mb-1">Bukti Transfer</label>
+                                    <p class="text-sm text-gray-300 bg-gray-800/50 p-3 rounded-lg border border-gray-700">
+                                        <i class="fas fa-info-circle text-brand-blue mr-2"></i>Silakan simpan/download QRIS di atas dan lakukan pembayaran. <strong>Kirimkan bukti transfer secara manual</strong> ke WhatsApp atau Email admin setelah menekan tombol Submit.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 pt-4 border-t border-gray-800">
+                        <button id="btnCancel" class="px-6 py-3 rounded-xl font-semibold bg-gray-800 text-gray-300 hover:bg-gray-700 transition-colors w-full sm:w-auto">
+                            Batal
+                        </button>
+                        <button onclick="submitOrder('wa')" class="bg-green-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-green-700 transition-all flex items-center justify-center w-full sm:w-auto">
+                            <i class="fab fa-whatsapp mr-2"></i> Kirim via WA
+                        </button>
+                        <button onclick="submitOrder('email')" class="bg-red-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-red-700 transition-all flex items-center justify-center w-full sm:w-auto">
+                            <i class="fas fa-envelope mr-2"></i> Kirim via Gmail
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Konsultasi -->
+    <section id="konsultasi" class="py-20 relative">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-2xl p-8 border-t-4 border-brand-blue">
+                <h2 class="text-3xl font-bold mb-6 text-center">Bertanya / <span class="text-gradient">Konsultasi</span></h2>
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Nama :</label>
+                        <input type="text" id="konsulNama" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue" placeholder="Nama Anda">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Alasan menghubungi :</label>
+                        <textarea id="konsulAlasan" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue resize-none" placeholder="Tuliskan pertanyaan atau kendala Anda..."></textarea>
+                    </div>
+                    <button onclick="kirimKonsul()" class="w-full bg-brand-blue text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-blueHover transition-all flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-2"></i> Kirim Konsultasi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a0c] border-t border-gray-800 py-8 text-center mt-auto">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-2xl font-bold text-gradient mb-2">BlazezzzzJoki</h2>
+            <p class="text-gray-500 text-sm mb-4">Solusi Joki Game Profesional & Terpercaya.</p>
+            <p class="text-gray-600 text-xs">&copy; <span id="currentYear">2023</span> BlazezzzzJoki. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Typing Effect
+        const textArray = ["BlazezzzzJoki"];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeTarget = document.getElementById("brand-typing");
+
+        function type() {
+            const currentText = textArray[textIndex];
+            if (isDeleting) {
+                typeTarget.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typeTarget.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 100 : 150;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                typeSpeed = 500; // Pause before typing again
+            }
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            if(typeTarget) type();
+            document.getElementById("currentYear").textContent = new Date().getFullYear();
+        });
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        function showJokiSection(e) {
+            if (e) e.preventDefault();
+            const jokiSection = document.getElementById('joki');
+            jokiSection.classList.remove('hidden');
+            if (!menu.classList.contains('hidden')) menu.classList.add('hidden');
+            setTimeout(() => {
+                jokiSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#carousel > div');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = slides.length;
+
+        function updateSlide() {
+            document.getElementById('carousel').style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                if(index === currentSlide) {
+                    dot.classList.replace('bg-gray-500', 'bg-brand-blue');
+                } else {
+                    dot.classList.replace('bg-brand-blue', 'bg-gray-500');
+                }
+            });
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide();
+        }
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlide();
+        }, 5000);
+
+        const formatRp = (num) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(num);
+
+        const priceListDisplay = [
+            { name: 'Epic', biasa: 6000, gendong: 9000, img: 'https://i.ibb.co.com/fGFDtLNG/4734fb775e7266359cc845892494599b-removebg-preview.png' },
+            { name: 'Legend', biasa: 7000, gendong: 10000, img: 'https://i.ibb.co.com/G4Mrf5ZQ/images-removebg-preview.png' },
+            { name: 'Mythic', biasa: 14000, gendong: 18000, img: 'https://i.ibb.co.com/zWvvW31z/8531ec8e85dda4e3f99e2bed1ccec60c-removebg-preview.png' },
+            { name: 'Honor', biasa: 16000, gendong: 20000, img: 'https://i.ibb.co.com/Nd4sF5kS/j-removebg-preview.png' },
+            { name: 'Glory', biasa: 20000, gendong: 25000, img: 'https://i.ibb.co.com/39Q8vhJQ/download-removebg-preview.png' },
+            { name: 'Immortal', biasa: 'PC Admin', gendong: 'PC Admin', img: 'https://i.ibb.co.com/VcW91TwT/download-removebg-preview-1.png' }
+        ];
+
+        const ranksBase = [
+            { name: 'Epic V', cap: 5 }, { name: 'Epic IV', cap: 5 }, { name: 'Epic III', cap: 5 }, { name: 'Epic II', cap: 5 }, { name: 'Epic I', cap: 5 },
+            { name: 'Legend V', cap: 5 }, { name: 'Legend IV', cap: 5 }, { name: 'Legend III', cap: 5 }, { name: 'Legend II', cap: 5 }, { name: 'Legend I', cap: 5 },
+            { name: 'Mythic', cap: 25 },
+            { name: 'Honor', cap: 25 },
+            { name: 'Glory', cap: 50 },
+            { name: 'Immortal', cap: 9999 }
+        ];
+
+        function getPrice(rankName, isGendong) {
+            if(rankName.includes('Epic')) return isGendong ? 9000 : 6000;
+            if(rankName.includes('Legend')) return isGendong ? 10000 : 7000;
+            if(rankName.includes('Mythic')) return isGendong ? 18000 : 14000;
+            if(rankName.includes('Honor')) return isGendong ? 20000 : 16000;
+            if(rankName.includes('Glory')) return isGendong ? 25000 : 20000;
+            return 0; // Immortal
+        }
+
+        function getRankImage(rankName) {
+            if(rankName.includes('Epic')) return 'https://i.ibb.co.com/fGFDtLNG/4734fb775e7266359cc845892494599b-removebg-preview.png';
+            if(rankName.includes('Legend')) return 'https://i.ibb.co.com/G4Mrf5ZQ/images-removebg-preview.png';
+            if(rankName.includes('Mythic')) return 'https://i.ibb.co.com/zWvvW31z/8531ec8e85dda4e3f99e2bed1ccec60c-removebg-preview.png';
+            if(rankName.includes('Honor')) return 'https://i.ibb.co.com/Nd4sF5kS/j-removebg-preview.png';
+            if(rankName.includes('Glory')) return 'https://i.ibb.co.com/39Q8vhJQ/download-removebg-preview.png';
+            return 'https://i.ibb.co.com/VcW91TwT/download-removebg-preview-1.png'; // Immortal
+        }
+
+        const priceListContainer = document.getElementById('priceListContainer');
+        priceListDisplay.forEach((rank) => {
+            const card = document.createElement('div');
+            card.className = 'glass-card p-4 rounded-xl text-center flex flex-col items-center justify-center border-t-2 border-transparent hover:border-brand-blue transition-colors duration-300';
+            
+            let priceText = rank.name === 'Immortal' ? 
+                `<p class="text-brand-blue font-bold text-sm">Biasa: PC Admin</p><p class="text-gray-300 font-bold text-sm mt-1">Gendong: PC Admin</p>` :
+                `<p class="text-brand-blue font-bold text-sm">Biasa: ${formatRp(rank.biasa)}</p><p class="text-gray-300 font-bold text-sm mt-1">Gendong: ${formatRp(rank.gendong)}</p>`;
+
+            card.innerHTML = `
+                <img src="${rank.img}" alt="${rank.name} rank logo" class="w-16 h-16 object-contain mb-3 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" />
+                <h4 class="font-bold text-base text-white mb-2">${rank.name}</h4>
+                ${priceText}
+            `;
+            priceListContainer.appendChild(card);
+        });
+
+        const selectAwal = document.getElementById('rankAwal');
+        const selectTujuan = document.getElementById('rankTujuan');
+
+        ranksBase.forEach((rank, index) => {
+            selectAwal.add(new Option(rank.name, index));
+            selectTujuan.add(new Option(rank.name, index));
+        });
+
+        selectAwal.selectedIndex = 0;
+        selectTujuan.selectedIndex = 10; 
+
+        let tipeJoki = 'biasa';
+        function setTipeJoki(type) {
+            tipeJoki = type;
+            const btnBiasa = document.getElementById('btnBiasa');
+            const btnGendong = document.getElementById('btnGendong');
+            if(type === 'biasa') {
+                btnBiasa.className = 'px-6 py-2 rounded-md font-medium text-white bg-brand-blue transition-colors';
+                btnGendong.className = 'px-6 py-2 rounded-md font-medium text-gray-400 hover:text-white transition-colors';
+            } else {
+                btnGendong.className = 'px-6 py-2 rounded-md font-medium text-white bg-brand-blue transition-colors';
+                btnBiasa.className = 'px-6 py-2 rounded-md font-medium text-gray-400 hover:text-white transition-colors';
+            }
+            
+            // Re-calculate if result is already showing
+            if(!document.getElementById('resultArea').classList.contains('hidden')) {
+                document.getElementById('btnHitung').click();
+            }
+        }
+
+        const btnHitung = document.getElementById('btnHitung');
+        const errorMsg = document.getElementById('errorMsg');
+        const resultArea = document.getElementById('resultArea');
+        const checkoutForm = document.getElementById('checkoutForm');
+
+        let finalPrice = 0;
+        let finalStars = 0;
+        let finalRankAwalName = '';
+        let finalRankTujuanName = '';
+        let isPcAdmin = false;
+
+        btnHitung.addEventListener('click', () => {
+            errorMsg.classList.add('hidden');
+            resultArea.classList.add('hidden');
+            checkoutForm.classList.add('hidden');
+            isPcAdmin = false;
+            document.getElementById('pcAdminNote').classList.add('hidden');
+
+            const idxAwal = parseInt(selectAwal.value);
+            const idxTujuan = parseInt(selectTujuan.value);
+            const starAwal = parseInt(document.getElementById('bintangAwal').value);
+            const starTujuan = parseInt(document.getElementById('bintangTujuan').value);
+
+            if (isNaN(starAwal) || isNaN(starTujuan)) {
+                showError('Harap isi jumlah bintang awal dan tujuan.');
+                return;
+            }
+            if (starAwal < 0 || starTujuan < 1) {
+                showError('Jumlah bintang tidak valid.');
+                return;
+            }
+            if (starAwal > ranksBase[idxAwal].cap && idxAwal !== ranksBase.length - 1) {
+                showError(`Maksimal bintang untuk ${ranksBase[idxAwal].name} adalah ${ranksBase[idxAwal].cap}.`);
+                return;
+            }
+            if (starTujuan > ranksBase[idxTujuan].cap && idxTujuan !== ranksBase.length - 1) {
+                showError(`Maksimal bintang tujuan untuk ${ranksBase[idxTujuan].name} adalah ${ranksBase[idxTujuan].cap}.`);
+                return;
+            }
+            if (idxAwal > idxTujuan || (idxAwal === idxTujuan && starAwal >= starTujuan)) {
+                showError('Rank/Bintang tujuan harus lebih tinggi dari rank/bintang saat ini.');
+                return;
+            }
+
+            let totalCost = 0;
+            let totalStars = 0;
+            const isGendong = tipeJoki === 'gendong';
+
+            if (idxAwal === idxTujuan) {
+                let diff = starTujuan - starAwal;
+                let price = getPrice(ranksBase[idxAwal].name, isGendong);
+                if(price === 0) isPcAdmin = true;
+                totalCost = diff * price;
+                totalStars = diff;
+            } else {
+                let starsToFinish = ranksBase[idxAwal].cap - starAwal;
+                if (starsToFinish > 0) {
+                    let price = getPrice(ranksBase[idxAwal].name, isGendong);
+                    if(price === 0) isPcAdmin = true;
+                    totalCost += starsToFinish * price;
+                    totalStars += starsToFinish;
+                }
+
+                for (let i = idxAwal + 1; i < idxTujuan; i++) {
+                    let price = getPrice(ranksBase[i].name, isGendong);
+                    if(price === 0) isPcAdmin = true;
+                    totalCost += ranksBase[i].cap * price;
+                    totalStars += ranksBase[i].cap;
+                }
+
+                let priceTujuan = getPrice(ranksBase[idxTujuan].name, isGendong);
+                if(priceTujuan === 0) isPcAdmin = true;
+                totalCost += starTujuan * priceTujuan;
+                totalStars += starTujuan;
+            }
+
+            finalPrice = totalCost;
+            finalStars = totalStars;
+            finalRankAwalName = ranksBase[idxAwal].name;
+            finalRankTujuanName = ranksBase[idxTujuan].name;
+
+            document.getElementById('imgResAwal').src = getRankImage(ranksBase[idxAwal].name);
+            document.getElementById('txtResAwal').innerText = ranksBase[idxAwal].name;
+            document.getElementById('txtStarAwal').innerHTML = `<i class="fas fa-star text-yellow-500 text-xs"></i> ${starAwal} Bintang`;
+
+            document.getElementById('imgResTujuan').src = getRankImage(ranksBase[idxTujuan].name);
+            document.getElementById('txtResTujuan').innerText = ranksBase[idxTujuan].name;
+            document.getElementById('txtStarTujuan').innerHTML = `<i class="fas fa-star text-yellow-500 text-xs"></i> ${starTujuan} Bintang`;
+
+            document.getElementById('txtTotalStars').innerText = totalStars;
+            document.getElementById('txtTipeJokiRes').innerText = tipeJoki;
+            document.getElementById('summTipeJoki').innerText = tipeJoki;
+            
+            if(isPcAdmin) {
+                document.getElementById('txtTotalPrice').innerText = formatRp(totalCost) + "+";
+                document.getElementById('pcAdminNote').classList.remove('hidden');
+                document.getElementById('summTotal').innerText = "PC Admin";
+            } else {
+                document.getElementById('txtTotalPrice').innerText = formatRp(totalCost);
+                document.getElementById('summTotal').innerText = formatRp(totalCost);
+            }
+
+            resultArea.classList.remove('hidden');
+            resultArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        function showError(msg) {
+            errorMsg.innerText = msg;
+            errorMsg.classList.remove('hidden');
+        }
+
+        document.getElementById('btnReset').addEventListener('click', () => {
+            document.getElementById('bintangAwal').value = '';
+            document.getElementById('bintangTujuan').value = '';
+            resultArea.classList.add('hidden');
+            checkoutForm.classList.add('hidden');
+        });
+
+        document.getElementById('btnLanjut').addEventListener('click', () => {
+            checkoutForm.classList.remove('hidden');
+            checkoutForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        document.getElementById('btnCancel').addEventListener('click', () => {
+            checkoutForm.classList.add('hidden');
+            resultArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        function submitOrder(method) {
+            const loginVia = document.getElementById('loginVia').value;
+            const email = document.getElementById('emailAkun').value;
+            const pw = document.getElementById('pwAkun').value;
+            
+            const reqPermainan = document.getElementById('reqPermainan').value || '-';
+            const heroPrioritas = document.getElementById('heroPrioritas').value || '-';
+            const reqRole2 = document.getElementById('reqRole2').value || '-';
+            const reqRole3 = document.getElementById('reqRole3').value || '-';
+            const jmlReqHero = document.getElementById('jmlReqHero').value;
+
+            const nama = document.getElementById('namaCust').value;
+            const wa = document.getElementById('waCust').value;
+            const catatan = document.getElementById('catatanCust').value || '-';
+            
+            const starAwal = document.getElementById('bintangAwal').value;
+            const starTujuan = document.getElementById('bintangTujuan').value;
+
+            if(!email || !pw || !nama || !wa) {
+                alert('Harap lengkapi Email, Password, Nama, dan No WA!');
+                return;
+            }
+
+            let text = `*ORDER JOKI MLBB BLAZEZZZZJOKI*\n\n`;
+            text += `*Tipe Joki:* ${tipeJoki.toUpperCase()}\n`;
+            text += `*Detail Joki:*\n`;
+            text += `- Rank Awal: ${finalRankAwalName} (${starAwal} Bintang)\n`;
+            text += `- Rank Tujuan: ${finalRankTujuanName} (${starTujuan} Bintang)\n`;
+            text += `- Total Bintang: ${finalStars}\n`;
+            text += `- Harga: ${isPcAdmin ? 'PC Admin' : formatRp(finalPrice)}\n\n`;
+
+            text += `*Data Akun:*\n`;
+            text += `- Login Via: ${loginVia}\n`;
+            text += `- Email/No HP: ${email}\n`;
+            text += `- Password: ${pw}\n`;
+            text += `- Request Permainan: ${reqPermainan}\n`;
+            text += `- Hero Prioritas: ${heroPrioritas}\n`;
+            text += `- Request Role 2: ${reqRole2}\n`;
+            text += `- Request Role 3: ${reqRole3}\n`;
+            text += `- Jumlah Request Hero: ${jmlReqHero}\n\n`;
+
+            text += `*Data Customer:*\n`;
+            text += `- Nama: ${nama}\n`;
+            text += `- No WA: ${wa}\n`;
+            text += `- Catatan Tambahan: ${catatan}\n\n`;
+
+            text += `_Harap lampirkan foto bukti transfer secara manual di pesan ini._`;
+
+            if(method === 'wa') {
+                const waNumber = "6283198782229";
+                const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+                window.open(waUrl, '_blank');
+            } else if (method === 'email') {
+                const emailTarget = "blazeejk@gmail.com";
+                const mailUrl = `mailto:${emailTarget}?subject=Order Joki MLBB - ${nama}&body=${encodeURIComponent(text)}`;
+                window.open(mailUrl, '_blank');
+            }
+        }
+
+        function kirimKonsul() {
+            const nama = document.getElementById('konsulNama').value;
+            const alasan = document.getElementById('konsulAlasan').value;
+            
+            if(!nama || !alasan) {
+                alert('Harap isi Nama dan Alasan menghubungi.');
+                return;
+            }
+
+            let text = `*KONSULTASI BLAZEZZZZJOKI*\n\n`;
+            text += `Nama: ${nama}\n`;
+            text += `Alasan menghubungi: \n${alasan}`;
+
+            const waNumber = "6283198782229";
+            const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+            window.open(waUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
